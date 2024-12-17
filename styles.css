@@ -652,3 +652,15 @@ footer a:hover {
         justify-content: center;
     }
 } 
+
+/* Add this to your existing CSS */
+.txt {
+    border-right: 0.2rem solid #f97316; /* Orange color matching your theme */
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { border-color: transparent }
+    50% { border-color: #f97316 }
+    100% { border-color: transparent }
+} 
