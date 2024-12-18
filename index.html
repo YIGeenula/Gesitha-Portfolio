@@ -12,6 +12,43 @@
 </head>
 <body class="bg-gray-100">
     <!-- Add this right after the opening <body> tag -->
+    <div id="splash-screen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0A0A0A] transition-all duration-500">
+        <div class="relative text-center">
+            <!-- Animated background circles -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="animate-pulse-slow bg-orange-500/20 w-64 h-64 rounded-full blur-2xl"></div>
+                <div class="absolute animate-pulse-slow-delay bg-orange-500/10 w-96 h-96 rounded-full blur-3xl"></div>
+            </div>
+            
+            <!-- Main content -->
+            <div class="relative z-10 space-y-8">
+                <!-- Logo text -->
+                <div class="mb-8">
+                    <h1 class="text-6xl font-bold">
+                        <span class="text-white">Gesitha</span>
+                        <span class="bg-gradient-to-r from-orange-500 to-orange-400 text-transparent bg-clip-text">Weerasinghe</span>
+                    </h1>
+                </div>
+
+                <!-- Modern loading indicator -->
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="relative w-48 h-1 bg-gray-800/50 rounded-full overflow-hidden">
+                        <div class="loading-progress absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transform-gpu"></div>
+                    </div>
+                    <div class="loading-text flex items-center text-gray-400 text-sm tracking-wider uppercase">
+                        <span class="mr-2">Loading</span>
+                        <div class="flex space-x-1">
+                            <div class="w-1 h-1 bg-orange-500 rounded-full animate-bounce"></div>
+                            <div class="w-1 h-1 bg-orange-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                            <div class="w-1 h-1 bg-orange-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snowflakes -->
     <div class="snowflakes" aria-hidden="true"></div>
 
     <!-- Santa Animation -->
@@ -108,7 +145,7 @@
 
             <!-- Profile Image - Visible on all devices -->
             <div class="relative mt-8 lg:mt-0">
-                <img src="images/propic-03.jpg" alt="Profile" class="w-96 h-[28rem] object-cover rounded-lg">
+                <img src="images/propic-03.jpg" alt="Profile" class="w-96 h-[28rem] object-cover rounded-lg" loading="lazy">
                 <div class="absolute -top-4 -right-4 w-24 h-24 border-t-4 border-r-4 border-orange-500"></div>
                 <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-4 border-l-4 border-orange-500"></div>
             </div>
@@ -493,6 +530,11 @@
                             </a>
                             <a href="https://www.linkedin.com/in/gesitha/" target="_blank" class="bg-[#1a1a1a] p-4 rounded-lg hover:bg-orange-500 transition-colors duration-300">
                                 <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="https://www.fiverr.com/gesithathemiya" target="_blank" class="bg-[#1a1a1a] p-4 rounded-lg hover:bg-orange-500 transition-colors duration-300">
+                                <i class="fa-solid fa-f">
+                                    
+                                </i>
                             </a>
                         </div>
                     </div>

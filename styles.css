@@ -1360,3 +1360,117 @@ footer a:hover {
         animation-duration: 25s;
     }
 } 
+
+/* Modern splash screen styles */
+#splash-screen {
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(8px);
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Pulse animations */
+@keyframes pulse-slow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow-delay {
+    animation: pulse-slow 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+/* Loading progress animation */
+.loading-progress {
+    width: 0%;
+    animation: loading 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes loading {
+    0% {
+        width: 0%;
+        transform: translateX(-100%);
+    }
+    50% {
+        width: 100%;
+        transform: translateX(0);
+    }
+    100% {
+        width: 100%;
+        transform: translateX(100%);
+    }
+}
+
+/* Loading state styles */
+body.loading {
+    overflow: hidden;
+}
+
+body.loading .main-content {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.main-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Loading dots bounce animation */
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+} 
+
+/* Fiverr icon styles */
+.fiverr-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    font-size: 1.25em;
+}
+
+.fiverr-icon svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .fiverr-icon {
+    color: #fff;
+}
+
+/* Light mode styles */
+[data-theme="light"] .fiverr-icon {
+    color: #1dbf73;
+}
+
+/* Hover styles */
+.hover\:bg-orange-500:hover .fiverr-icon {
+    color: #fff;
+} 

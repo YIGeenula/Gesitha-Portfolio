@@ -1,3 +1,71 @@
+// Add this at the beginning of your script.js file
+document.body.classList.add('loading');
+
+// Modern splash screen initialization
+const initializeSplashScreen = () => {
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.querySelector('.main-content');
+    
+    const hideSplashScreen = () => {
+        splashScreen.classList.add('hidden');
+        document.body.classList.remove('loading');
+        mainContent?.classList.add('loaded');
+    };
+
+    const preloadImages = async () => {
+        const imagesToPreload = [
+            'images/propic-03.jpg',
+            'images/santa4.gif',
+            'images/FavIcon.png',
+            // Add other important images here
+        ];
+
+        const preloadPromises = imagesToPreload.map(src => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = resolve;
+                img.onerror = reject;
+            });
+        });
+
+        return Promise.all(preloadPromises).catch(error => {
+            console.warn('Some images failed to preload:', error);
+        });
+    };
+
+    const init = async () => {
+        try {
+            // Create a more dynamic loading experience
+            const minimumLoadingTime = new Promise(resolve => 
+                setTimeout(resolve, 2500)
+            );
+
+            await Promise.all([
+                preloadImages(),
+                minimumLoadingTime,
+                // Add other initialization tasks here
+            ]);
+
+            // Add a small delay before hiding for smoother transition
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    hideSplashScreen();
+                });
+            });
+        } catch (error) {
+            console.error('Error during initialization:', error);
+            hideSplashScreen();
+        }
+    };
+
+    // Start initialization when page loads
+    window.addEventListener('load', init);
+};
+
+// Initialize splash screen
+initializeSplashScreen();
+
 // Navigation functionality can be added here
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
