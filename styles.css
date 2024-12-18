@@ -1239,3 +1239,68 @@ footer a:hover {
         font-size: 1.25rem;
     }
 } 
+
+/* Snowflake container */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Individual snowflake styles */
+.snowflake {
+    position: absolute;
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #000;
+    opacity: 0;
+}
+
+/* Light mode adjustments for snowflakes */
+[data-theme="light"] .snowflake {
+    color: #e2e2e2;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+} 
+
+/* Home section adjustments to reduce size */
+#home .container {
+    max-width: 1024px;
+    padding: 1rem 2rem;
+}
+
+/* Profile image responsive styles */
+#home .relative img {
+    width: 100%;
+    max-width: 20rem;
+    height: 24rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    #home .relative img {
+        max-width: 16rem;
+        height: 20rem;
+    }
+    
+    #home .relative {
+        margin-bottom: 2rem;
+    }
+    
+    /* Adjust decorative borders for mobile */
+    #home .absolute.-top-4.-right-4,
+    #home .absolute.-bottom-4.-left-4 {
+        width: 3rem;
+        height: 3rem;
+    }
+} 
+
+/* Adjust spacing and sizing for text content */
+#home .space-y-6 {
+    margin-top: 1rem;
+    gap: 1rem;
+} 

@@ -181,6 +181,9 @@ document.addEventListener('DOMContentLoaded', function() {
             result.classList.remove('hidden');
         }
     });
+
+    // Add snow effect
+    createSnowflakes();
 });
 
 function scrollToAbout() {
@@ -279,4 +282,72 @@ function init() {
     const wait = 3000;
     // Init TypeWriter
     new TypeWriter(txtElement, words, wait);
-} 
+}
+
+// Snow effect
+function createSnowflakes() {
+    const snowflakesContainer = document.querySelector('.snowflakes');
+    const snowflakeChars = ['❅', '❆', '❄'];
+    const numberOfSnowflakes = 50;
+    
+    // Create snowflakes
+    for (let i = 0; i < numberOfSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+        snowflakesContainer.appendChild(snowflake);
+        
+        // Set initial position
+        const startPositionLeft = Math.random() * window.innerWidth;
+        const startOpacity = 0.5 + Math.random() * 0.5;
+        const duration = 5 + Math.random() * 10;
+        const delay = Math.random() * 5;
+        
+        // Animate snowflake
+        function animateSnowflake() {
+            snowflake.style.left = startPositionLeft + 'px';
+            snowflake.style.top = '-20px';
+            snowflake.style.opacity = startOpacity;
+            
+            // Create animation
+            snowflake.animate([
+                {
+                    transform: `translate(0, 0) rotate(0deg)`,
+                    opacity: startOpacity
+                },
+                {
+                    transform: `translate(${25 * Math.sin(duration)}px, ${window.innerHeight + 20}px) rotate(360deg)`,
+                    opacity: 0
+                }
+            ], {
+                duration: duration * 1000,
+                delay: delay * 1000,
+                iterations: Infinity,
+                easing: 'linear'
+            });
+        }
+        
+        // Start animation
+        animateSnowflake();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (startPositionLeft > window.innerWidth) {
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            }
+        });
+    }
+}
+
+// Add this function to control snow visibility
+function toggleSnow(show) {
+    const snowflakes = document.querySelector('.snowflakes');
+    if (snowflakes) {
+        snowflakes.style.display = show ? 'block' : 'none';
+    }
+}
+
+// Example usage:
+// toggleSnow(false); // Hide snow
+// toggleSnow(true);  // Show snow
+ 
