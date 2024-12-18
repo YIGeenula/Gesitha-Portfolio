@@ -1304,3 +1304,59 @@ footer a:hover {
     margin-top: 1rem;
     gap: 1rem;
 } 
+
+/* Santa Animation */
+.santa-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 101; /* Above snowflakes */
+}
+
+.santa-sleigh {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    animation: flyAround 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes flyAround {
+    0% {
+        transform: translate(-150px, 15vh) rotate(0deg) scale(0.8) scaleX(-1);
+    }
+    15% {
+        transform: translate(25vw, 10vh) rotate(5deg) scale(1) scaleX(-1);
+    }
+    25% {
+        transform: translate(50vw, 25vh) rotate(-2deg) scale(0.9) scaleX(-1);
+    }
+    35% {
+        transform: translate(75vw, 15vh) rotate(3deg) scale(1) scaleX(-1);
+    }
+    50% {
+        transform: translate(100vw, 20vh) rotate(0deg) scale(0.8) scaleX(-1);
+    }
+    65% {
+        transform: translate(75vw, 30vh) rotate(-3deg) scale(0.9);
+    }
+    75% {
+        transform: translate(50vw, 15vh) rotate(2deg) scale(1);
+    }
+    85% {
+        transform: translate(25vw, 25vh) rotate(-2deg) scale(0.9);
+    }
+    100% {
+        transform: translate(-150px, 15vh) rotate(0deg) scale(0.8);
+    }
+}
+
+/* Responsive adjustments for Santa */
+@media (max-width: 768px) {
+    .santa-sleigh {
+        width: 150px;
+        animation-duration: 25s;
+    }
+} 

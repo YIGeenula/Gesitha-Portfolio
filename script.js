@@ -347,7 +347,17 @@ function toggleSnow(show) {
     }
 }
 
+// Add this function to control Santa visibility
+function toggleSanta(show) {
+    const santa = document.querySelector('.santa-container');
+    if (santa) {
+        santa.style.display = show ? 'block' : 'none';
+    }
+}
+
 // Example usage:
 // toggleSnow(false); // Hide snow
 // toggleSnow(true);  // Show snow
+// toggleSanta(false); // Hide Santa
+// toggleSanta(true);  // Show Santa
  
