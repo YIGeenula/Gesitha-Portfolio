@@ -1474,3 +1474,27 @@ body.loading .main-content {
 .hover\:bg-orange-500:hover .fiverr-icon {
     color: #fff;
 } 
+
+/* Update splash screen text sizes */
+#splash-screen h1.text-6xl {
+    font-size: 2.5rem; /* Reduced from 3.75rem (text-6xl) */
+}
+
+/* Add responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #splash-screen h1.text-6xl {
+        font-size: 2rem;
+    }
+}
+
+/* Adjust loading text size */
+#splash-screen .loading-text {
+    font-size: 0.75rem; /* Reduced from 0.875rem (text-sm) */
+    letter-spacing: 0.05em;
+}
+
+/* Adjust loading dots size */
+#splash-screen .loading-text .w-1.h-1 {
+    width: 3px;
+    height: 3px;
+} 
