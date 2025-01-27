@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesitha Themiya - Portfolio Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/FavIcon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#212121]">
+    <!-- Navigation Bar -->
+    <div class="fixed top-0 left-0 right-0 bg-[#1a1a1a] h-16 flex items-center justify-between px-4 z-50 shadow-lg">
+        <!-- Back to Home Button -->
+        <a href="index.html" class="!text-white bg-orange-500 hover:bg-orange-600 transition-colors px-4 py-2 rounded-lg flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to Home
+        </a>
+        
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="text-white hover:text-orange-500 transition-colors">
+            <i class="fas fa-sun text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Portfolio Gallery Section -->
+    <div class="container mx-auto px-4 pt-24 pb-20">
+        <!-- Section Title -->
+        <div class="mb-12 text-center">
+            <h2 class="text-4xl font-bold text-white">Portfolio Gallery</h2>
+            <div class="w-16 h-1 bg-orange-500 mt-2 mx-auto"></div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="filter-btn active bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300">
+                All
+            </button>
+            <button class="filter-btn bg-[#1a1a1a] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-all duration-300">
+                Book Covers
+            </button>
+            <button class="filter-btn bg-[#1a1a1a] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-all duration-300">
+                Brochures
+            </button>
+            <button class="filter-btn bg-[#1a1a1a] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-all duration-300">
+                Business Cards
+            </button>
+            <button class="filter-btn bg-[#1a1a1a] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-all duration-300">
+                CD Covers
+            </button>
+            <button class="filter-btn bg-[#1a1a1a] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-all duration-300">
+                FB Posts
+            </button>
+            <button class="filter-btn bg-[#1a1a1a] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-all duration-300">
+                Letters
+            </button>
+            <button class="filter-btn bg-[#1a1a1a] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-all duration-300">
+                Magazines
+            </button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Book Cover 1 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="book-covers">
+                <img src="images/Portfolio/Book-1.jpg" alt="Book Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Book Cover Design</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Magazine 2 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="magazines">
+                <img src="images/Portfolio/Magazine-2.jpg" alt="CD Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Magazine</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Cover 4 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="book-covers">
+                <img src="images/Portfolio/Book-4.jpg" alt="Book Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Book Cover Design</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brochure 1 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="brochures">
+                <img src="images/Portfolio/Brocher.jpg" alt="Brochure Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Brochure Design</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter 1 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="letters">
+                <img src="images/Portfolio/Letter.jpg" alt="CD Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Letter</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Cover 2 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="book-covers">
+                <img src="images/Portfolio/Book-2.jpg" alt="Book Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Book Cover Design</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Card 3 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="business-cards">
+                <img src="images/Portfolio/Card-4.jpg" alt="Business Card Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Business Card</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Cover 5 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="book-covers">
+                <img src="images/Portfolio/Book-5.jpg" alt="Book Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Book Cover Design</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Cover 3 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="book-covers">
+                <img src="images/Portfolio/Book-3.jpg" alt="Book Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Book Cover Design</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Card 1 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="business-cards">
+                <img src="images/Portfolio/Card-2.jpg" alt="Business Card Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Business Card</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Card 2 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="business-cards">
+                <img src="images/Portfolio/Card-3.jpg" alt="Business Card Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Business Card</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FB Post 1 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="fb-posts">
+                <img src="images/Portfolio/Fb-Mockup.jpg" alt="CD Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">FB Post</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Card 4 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="business-cards">
+                <img src="images/Portfolio/Card-5.jpg" alt="Business Card Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Business Card</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CD Cover 1 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="cd-covers">
+                <img src="images/Portfolio/CD.jpg" alt="CD Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">CD Cover</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poster -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="fb-posts">
+                <img src="images/Portfolio/Posters.jpg" alt="CD Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Poster</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Magazine 1 -->
+            <div class="group relative overflow-hidden rounded-lg portfolio-item" data-category="magazines">
+                <img src="images/Portfolio/Magazine-1.jpg" alt="CD Cover Design" class="w-full h-64 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Magazine</h3>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme === 'light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+
+        function toggleTheme() {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme === 'light');
+        }
+
+        function updateIcon(isLight) {
+            icon.classList.remove('fa-sun', 'fa-moon');
+            icon.classList.add(isLight ? 'fa-moon' : 'fa-sun');
+        }
+
+        // Portfolio filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-orange-500'));
+                filterButtons.forEach(btn => btn.classList.add('bg-[#1a1a1a]'));
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-orange-500');
+                button.classList.remove('bg-[#1a1a1a]');
+
+                const category = button.textContent.trim().toLowerCase().replace(' ', '-');
+
+                portfolioItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesitha Themiya - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/FavIcon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Add this right after the opening <body> tag -->
+    <div id="splash-screen" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0A0A0A] transition-all duration-500">
+        <div class="relative text-center">
+            <!-- Animated background circles -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="animate-pulse-slow bg-orange-500/20 w-64 h-64 rounded-full blur-2xl"></div>
+                <div class="absolute animate-pulse-slow-delay bg-orange-500/10 w-96 h-96 rounded-full blur-3xl"></div>
+            </div>
+            
+            <!-- Main content -->
+            <div class="relative z-10 space-y-8">
+                <!-- Logo text -->
+                <div class="mb-8">
+                    <h1 class="text-6xl font-bold">
+                        <span class="text-white">Gesitha</span>
+                        <span class="bg-gradient-to-r from-orange-500 to-orange-400 text-transparent bg-clip-text">Weerasinghe</span>
+                    </h1>
+                </div>
+
+                <!-- Modern loading indicator -->
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="relative w-48 h-1 bg-gray-800/50 rounded-full overflow-hidden">
+                        <div class="loading-progress absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transform-gpu"></div>
+                    </div>
+                    <div class="loading-text flex items-center text-gray-400 text-sm tracking-wider uppercase">
+                        <span class="mr-2">Loading</span>
+                        <div class="flex space-x-1">
+                            <div class="w-1 h-1 bg-orange-500 rounded-full animate-bounce"></div>
+                            <div class="w-1 h-1 bg-orange-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                            <div class="w-1 h-1 bg-orange-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update the mobile controls with background bar -->
+    <div class="lg:hidden fixed top-0 w-full z-50">
+        <!-- Background bar -->
+        <div class="bg-[#0A0A0A] w-full py-3 px-4 shadow-lg">
+            <div class="flex justify-between items-center">
+                <!-- Left side - Menu button -->
+                <button id="mobile-menu-btn" class="text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                
+                <!-- Right side - Theme toggle -->
+                <button id="mobile-theme-toggle" class="text-white hover:text-orange-500 transition-colors">
+                    <i class="fas fa-sun text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update the nav element -->
+    <nav id="nav-menu" class="fixed left-0 top-0 h-full w-80 bg-[#0a0a0a] text-white p-4 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-40 flex flex-col">
+        <!-- Navigation Items Container - Now includes logo -->
+        <div class="space-y-6 flex flex-col items-center flex-1 justify-center -mt-20">
+            <!-- Logo moved inside -->
+            <div class="mb-8">
+                <h1 class="text-5xl font-bold nav-logo">
+                    <span class="text-white">Gesitha</span> 
+                </h1>
+            </div>
+
+            <a href="#home" class="nav-item flex items-center justify-center w-48 space-x-4 p-3 rounded-lg hover:bg-[#181818] transition-all duration-200">
+                <i class="fas fa-home w-8 text-xl text-center"></i>
+                <span class="nav-text text-lg flex-1">Home</span>
+            </a>
+            
+            <a href="#about" class="nav-item flex items-center justify-center w-48 space-x-4 p-3 rounded-lg hover:bg-[#181818] transition-all duration-200">
+                <i class="fas fa-user w-8 text-xl text-center"></i>
+                <span class="nav-text text-lg flex-1">About</span>
+            </a>
+            
+            <a href="#services" class="nav-item flex items-center justify-center w-48 space-x-4 p-3 rounded-lg hover:bg-[#181818] transition-all duration-200">
+                <i class="fas fa-cogs w-8 text-xl text-center"></i>
+                <span class="nav-text text-lg flex-1">Services</span>
+            </a>
+            
+            <a href="#portfolio" class="nav-item flex items-center justify-center w-48 space-x-4 p-3 rounded-lg hover:bg-[#181818] transition-all duration-200">
+                <i class="fas fa-briefcase w-8 text-xl text-center"></i>
+                <span class="nav-text text-lg flex-1">Portfolio</span>
+            </a>
+            
+            <a href="#contact" class="nav-item flex items-center justify-center w-48 space-x-4 p-3 rounded-lg hover:bg-[#181818] transition-all duration-200">
+                <i class="fas fa-envelope w-8 text-xl text-center"></i>
+                <span class="nav-text text-lg flex-1">Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Desktop theme toggle -->
+    <div class="fixed top-4 right-4 space-x-4 z-50 hidden lg:block">
+        <button id="theme-toggle" class="text-white hover:text-orange-500 transition-colors">
+            <i class="fas fa-sun text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div id="home" class="lg:ml-64 p-8 pt-20 lg:pt-8 main-content min-h-screen flex items-center justify-center">
+        <!-- Content Container -->
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between max-w-6xl relative">
+            <!-- Introduction Section -->
+            <div class="space-y-6 max-w-2xl text-center lg:text-left px-4 mt-24 lg:mt-0">
+                <h1 class="text-4xl lg:text-5xl font-bold leading-tight">
+                    Hello, my name is <span class="text-orange-500 font-cursive block lg:inline">Gesitha Themiya</span>
+                </h1>
+                
+                <div class="text-2xl lg:text-3xl font-bold">
+                    I'm a <span id="typed-text" class="text-orange-500"></span>
+                </div>
+                
+                <p class="text-gray-300 text-lg lg:text-xl">
+                    I'm a Graphic Designer with extensive experience for over 1 years.
+                    My expertise is to create graphical designs, and many more...
+                </p>
+
+                <button onclick="scrollToAbout()" class="bg-orange-500 text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full hover:bg-orange-600 transition-all duration-300 text-lg">
+                    More About Me
+                </button>
+            </div>
+
+            <!-- Profile Image - Visible on all devices -->
+            <div class="relative mt-8 lg:mt-0">
+                <img src="images/propic-03.jpg" alt="Profile" class="w-96 h-[28rem] object-cover rounded-lg" loading="lazy">
+                <div class="absolute -top-4 -right-4 w-24 h-24 border-t-4 border-r-4 border-orange-500"></div>
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-4 border-l-4 border-orange-500"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- About Me Section -->
+    <div id="about" class="lg:ml-64 p-8 main-content min-h-screen">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Section Title -->
+            <div class="mb-12 text-center lg:text-left">
+                <h2 class="text-4xl font-bold text-white">About Me</h2>
+                <div class="w-16 h-1 bg-orange-500 mt-2 mx-auto lg:mx-0"></div>
+            </div>
+
+            <!-- About Content -->
+            <div class="space-y-8">
+                <!-- Introduction -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-bold mb-4">
+                        I'm <span class="text-orange-500">Gesitha Themiya Weerasinghe</span>
+                    </h3>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        I'm a passionate Graphic Designer with over 1 years of experience in creating visually compelling designs. 
+                        My expertise spans across brand identity, digital design, and motion graphics. I specialize in creating 
+                        unique visual solutions that help businesses stand out in today's competitive market. From logo design 
+                        to social media graphics, I bring creativity and precision to every project.
+                    </p>
+                </div>
+
+                <!-- Personal Info Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">Birthday :</span>
+                            <span class="text-white">9 September 2003</span>
+                        </div>
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">Website :</span>
+                            <span class="text-white">https://gesitha.netlify.app</span>
+                        </div>
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">Diploma :</span>
+                            <span class="text-white">Graphic Design</span>
+                        </div>
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">City :</span>
+                            <span class="text-white">Kalutara</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">Age :</span>
+                            <span class="text-white">21</span>
+                        </div>
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">Email :</span>
+                            <span class="text-white break-all">gesithathemiya@gmail.com</span>
+                        </div>
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">Phone :</span>
+                            <span class="text-white">+94 76 035 8858</span>
+                        </div>
+                        <div class="flex flex-col items-center sm:flex-row sm:items-center border-b border-gray-700 py-3 text-center sm:text-left">
+                            <span class="text-gray-300 mb-1 sm:mb-0 sm:w-24 sm:min-w-24">Freelance :</span>
+                            <span class="text-white">Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="mt-12 space-y-6">
+                    <!-- Photoshop -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white">Adobe Photoshop</span>
+                            <span class="text-orange-500">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-orange-500 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Illustrator -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white">Adobe Illustrator</span>
+                            <span class="text-orange-500">98%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-orange-500 h-2 rounded-full" style="width: 98%"></div>
+                        </div>
+                    </div>
+
+                    <!-- InDesign -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white">Adobe Indesign</span>
+                            <span class="text-orange-500">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="bg-orange-500 h-2 rounded-full" style="width: 93%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-4 mt-8">
+                    <a href="Gesitha-CV.pdf" download class="bg-orange-500 !text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-all duration-300 font-medium">
+                        Download CV
+                    </a>
+                    <a href="mailto:gesithathemiya@gmail.com" class="bg-orange-500 !text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-all duration-300 font-medium">
+                        Hire Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services Section -->
+    <div id="services" class="lg:ml-64 p-8 main-content min-h-screen">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Section Title -->
+            <div class="mb-12 text-center lg:text-left">
+                <h2 class="text-4xl font-bold text-white">Services</h2>
+                <div class="w-16 h-1 bg-orange-500 mt-2 mx-auto lg:mx-0"></div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Brand Identity -->
+                <div class="bg-[#1a1a1a] p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Brand Identity</h3>
+                    <p class="text-gray-300">
+                        Complete branding solutions including logo design, brand guidelines, 
+                        color palettes, and visual identity systems that make your brand stand out.
+                    </p>
+                </div>
+
+                <!-- Print Design -->
+                <div class="bg-[#1a1a1a] p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Print Design</h3>
+                    <p class="text-gray-300">
+                        Professional design for business cards, brochures, flyers, 
+                        posters, packaging, and other marketing materials.
+                    </p>
+                </div>
+
+                <!-- Social Media Design -->
+                <div class="bg-[#1a1a1a] p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Social Media</h3>
+                    <p class="text-gray-300">
+                        Eye-catching social media graphics, post templates, 
+                        story designs, and complete social media visual packages.
+                    </p>
+                </div>
+
+                <!-- Package Design -->
+                <div class="bg-[#1a1a1a] p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Package Design</h3>
+                    <p class="text-gray-300">
+                        Creative packaging solutions for products, including label design, 
+                        box design, and retail packaging that captures attention and enhances brand value.
+                    </p>
+                </div>
+
+                <!-- Editorial Design -->
+                <div class="bg-[#1a1a1a] p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Editorial Design</h3>
+                    <p class="text-gray-300">
+                        Magazine layouts, book covers, annual reports, and publications 
+                        with engaging typography and visual storytelling that captivates readers.
+                    </p>
+                </div>
+
+                <!-- Vector Illustration -->
+                <div class="bg-[#1a1a1a] p-8 rounded-lg hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Vector Illustration</h3>
+                    <p class="text-gray-300">
+                        Custom vector illustrations, icons, and graphics for various purposes, 
+                        from mascot designs to technical illustrations and infographics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Portfolio Section -->
+    <div id="portfolio" class="lg:ml-64 p-8 main-content min-h-screen">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Section Title -->
+            <div class="mb-12 text-center lg:text-left">
+                <h2 class="text-4xl font-bold text-white">Portfolio</h2>
+                <div class="w-16 h-1 bg-orange-500 mt-2 mx-auto lg:mx-0"></div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="group relative overflow-hidden rounded-lg">
+                    <img src="images/Portfolio/Book-1.jpg" alt="Brand Identity Project" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="absolute bottom-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Book Cover Design</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="group relative overflow-hidden rounded-lg">
+                    <img src="images/Portfolio/Card-2.jpg" alt="Package Design" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="absolute bottom-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Business Card</h3>     
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="group relative overflow-hidden rounded-lg">
+                    <img src="images/Portfolio/Book-5.jpg" alt="Social Media Campaign" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="absolute bottom-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Book Cover Design</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="group relative overflow-hidden rounded-lg">
+                    <img src="images/Portfolio/Card-3.jpg" alt="Social Media Campaign" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="absolute bottom-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Business Card</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 5 -->
+                <div class="group relative overflow-hidden rounded-lg">
+                    <img src="images/Portfolio/Letter.jpg" alt="Social Media Campaign" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="absolute bottom-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Letter</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 6 -->
+                <div class="group relative overflow-hidden rounded-lg">
+                    <img src="images/Portfolio/Brocher.jpg" alt="Social Media Campaign" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-black/50 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div class="absolute bottom-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Brochure Design</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Projects Button -->
+            <div class="text-center mt-12 flex justify-center gap-4">
+                <!-- Existing View All Projects button -->
+                <a href="portfolio.html" class="group relative inline-flex items-center justify-center px-8 py-3 font-semibold tracking-wide text-white transition-all duration-300 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-lg overflow-hidden">
+                    <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span class="relative flex items-center">
+                        View All Projects
+                        
+                    </span>
+                </a>
+
+                <!-- New button for different page -->
+                <a href="gallery.html" class="group relative inline-flex items-center justify-center px-8 py-3 font-semibold tracking-wide text-white transition-all duration-300 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 rounded-lg overflow-hidden">
+                    <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span class="relative flex items-center">
+                        Photographic Gallery
+                        <i class="fas fa-images ml-2 transform group-hover:scale-110 transition-transform duration-300"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Section -->
+    <div id="contact" class="lg:ml-64 p-8 main-content min-h-screen">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Section Title -->
+            <div class="mb-12 text-center lg:text-left">
+                <h2 class="text-4xl font-bold text-white">Contact Me</h2>
+                <div class="w-16 h-1 bg-orange-500 mt-2 mx-auto lg:mx-0"></div>
+            </div>
+
+            <!-- Contact Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold mb-6">Let's Connect</h3>
+                    <p class="text-gray-300 mb-8">
+                        Feel free to get in touch with me. I'm always open to discussing new projects, 
+                        creative ideas or opportunities to be part of your visions.
+                    </p>
+
+                    <!-- Contact Details -->
+                    <div class="space-y-6">
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-[#1a1a1a] p-4 rounded-lg shrink-0">
+                                <i class="fas fa-map-marker-alt text-orange-500 text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-semibold mb-1">Address</h4>
+                                <p class="text-gray-300">Kalutara, Sri Lanka</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-[#1a1a1a] p-4 rounded-lg shrink-0">
+                                <i class="fas fa-phone-alt text-orange-500 text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-semibold mb-1">Phone</h4>
+                                <p class="text-gray-300">+94 76 035 8858</p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-[#1a1a1a] p-4 rounded-lg shrink-0">
+                                <i class="fas fa-envelope text-orange-500 text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <p class="text-gray-300">gesithathemiya@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="pt-8 text-center lg:text-left">
+                        <h4 class="font-semibold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4 justify-center lg:justify-start">
+                            <a href="https://www.facebook.com/gesitha.Themiya" target="_blank" class="bg-[#1a1a1a] p-4 rounded-lg hover:bg-orange-500 transition-colors duration-300">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="https://www.behance.net/gesithathemiya" target="_blank" class="bg-[#1a1a1a] p-4 rounded-lg hover:bg-orange-500 transition-colors duration-300">
+                                <i class="fab fa-behance text-xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/gesitha/" target="_blank" class="bg-[#1a1a1a] p-4 rounded-lg hover:bg-orange-500 transition-colors duration-300">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="https://www.fiverr.com/gesithathemiya" target="_blank" class="bg-[#1a1a1a] p-4 rounded-lg hover:bg-orange-500 transition-colors duration-300">
+                                <span class="fiverr-icon">
+                                    <i class="fa-solid fa-f">
+                                    
+                                    </i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-[#1a1a1a] p-8 rounded-lg relative form-container overflow-hidden">
+                    <!-- Animated border elements -->
+                    <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-orange-500 to-transparent animate-border-flow"></div>
+                    <div class="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-transparent to-orange-500 animate-border-flow-reverse"></div>
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-transparent animate-border-flow-horizontal"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent to-orange-500 animate-border-flow-horizontal-reverse"></div>
+                    
+                    <!-- Form content remains the same -->
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 relative z-10">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="ff3c77a9-2ddb-460c-afb1-2dcb4efe2365">
+                        
+                        <!-- Add success/error message div -->
+                        <div id="result" class="hidden">
+                            <div class="success text-green-500 mb-4"></div>
+                            <div class="error text-red-500 mb-4"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" name="name" placeholder="Your Name" required
+                                    class="w-full bg-[#111111] text-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                            <div>
+                                <input type="email" name="email" placeholder="Your Email" required
+                                    class="w-full bg-[#111111] text-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" name="subject" placeholder="Subject" required
+                                class="w-full bg-[#111111] text-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        </div>
+                        <div>
+                            <textarea name="message" rows="6" placeholder="Your Message" required
+                                class="w-full bg-[#111111] text-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                            class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center group">
+                            Send Message
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class="lg:ml-64 bg-[#1a1a1a] text-white py-8">
+        <div class="container mx-auto max-w-6xl px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- About Column -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold">Gesitha</h3>
+                    <p class="text-gray-300 text-sm">
+                        Professional Graphic Designer specializing in brand identity, print design, and digital media.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/gesitha.Themiya" target="_blank" class="text-gray-300 hover:text-orange-500 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.behance.net/gesithathemiya" target="_blank" class="text-gray-300 hover:text-orange-500 transition-colors">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gesitha/" target="_blank" class="text-gray-300 hover:text-orange-500 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.fiverr.com/gesithathemiya" target="_blank" class="text-gray-300 hover:text-orange-500 transition-colors">
+                            <span class="fiverr-icon">
+                                <i class="fa-solid fa-f">
+                                    
+                                </i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services Column -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="portfolio.html" target="_blank" class="hover:text-orange-500 transition-colors">Graphic Design</a></li>
+                        <li><a href="gallery.html" target="_blank" class="hover:text-orange-500 transition-colors">Photography</a></li>  
+                    </ul>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-orange-500 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-orange-500 transition-colors">About</a></li>
+                        <li><a href="#portfolio" class="hover:text-orange-500 transition-colors">Portfolio</a></li>
+                        <li><a href="gallery.html" target="_blank" class="hover:text-orange-500 transition-colors">Photographic Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-orange-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Column -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-orange-500"></i>
+                            <span>Kalutara, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-orange-500"></i>
+                            <span>+94 76 035 8858</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-orange-500"></i>
+                            <span>gesithathemiya@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-300">
+                <p class="mb-2">&copy; 2024 Gesitha Themiya. All rights reserved.</p>
+                <p class="text-sm">
+                    Designed & Developed by 
+                    <a href="https://ygcodeblaze.netlify.app/" target="_blank" class="text-orange-500 hover:text-orange-400 transition-colors">
+                        Yasiru Isum Geenula | YG CodeBlaze
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
